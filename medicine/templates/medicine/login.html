@@ -1,0 +1,30 @@
+{% extends 'medicine/layout.html' %}
+{% load static %}
+{% block title %}
+お薬投稿
+{% endblock %}
+{% block header %}
+{% endblock %}
+{% block content %}
+<div class="reg">
+    <form method="post" action="{% url 'Login' %}">
+      {% csrf_token %}
+  
+      <table class="reg_form">
+      <tr>
+      <td><label for="userid">ユーザーID:</label></td>
+      <td><input type="text" name="userid"></td>
+      <td><label for="password">パスワード：</label></td>
+      <td><input type="password" name="password"></td>
+      </tr>
+      </table>
+  
+      <input type="submit" class="btn" value="Login">
+   </form>
+  </div>
+     <p class="message">アカウントをお持ちですか？：
+     <a href="{% url 'register' %}">アカウントを作成</a>
+     </p>
+<br><br><br><br><br><br><br><br><br>
+<div class="plus_medi"><a href="{% url 'create' %}"><img src="{% static 'medicine/img/plus.svg' %}" alt=""><br><div class="plus_text">薬を追加</div></a></div>
+{% endblock %}

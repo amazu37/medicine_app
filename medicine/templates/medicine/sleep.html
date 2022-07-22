@@ -1,0 +1,55 @@
+{% extends 'medicine/layout.html' %}
+{% load static %}
+{% block title %}
+お薬投稿
+{% endblock %}
+{% block header %}
+<div id="sp-fixed-menu-time">
+  <ul>
+    <li class="noclick"><a href="{% url 'morning' %}"><img src="{% static 'medicine/img/morning.svg' %}" alt=""><br>朝</a></li>
+    <li class="noclick"><a href="{% url 'noon' %}"><img src="{% static 'medicine/img/noon.svg' %}" alt=""><br>昼</a></li>
+    <li class="noclick"><a href="{% url 'night' %}"><img src="{% static 'medicine/img/night.svg' %}" alt=""><br>夜</a></li>
+    <li class="click"><a href="{% url 'sleep' %}"><img src="{% static 'medicine/img/sleep.svg' %}" alt=""><br>寝る前</a></li>
+    <li class="noclick"><a href="{% url 'other' %}"><img src="{% static 'medicine/img/others.svg' %}" alt=""><br>その他</a></li>
+  </ul>
+</div>
+{% endblock %}
+{% block content %}
+<br><br>
+<h1 class="">{{title}}</h1>
+<br><br>
+<p class="">{{message|safe}}</p>
+<table class="table">
+{% for item in data %}
+  <tr><th colspan="11">{{item.medicinename}}</th></tr>
+  <tr>
+      <th>病院</th>
+      <th>診療科</th>
+      <th>効用</th>
+      <th>一回の服用数</th>
+      <th>薬の形状</th>
+      <th colspan="7">飲む時間</th>
+  </tr>
+  <tr>
+      <td>{{item.hospital}}</td>
+      <td>{{item.department}}</td>
+      <td>{{item.purpose}}</td>
+      <td>{{item.dosage}}</td>
+      <td>{{item.shape}}</td>
+      <td>{% if item.timemorning == True %}<div class="icontrue"><img src="{% static 'medicine/img/morning.jpg' %}" class="icontrue" alt=""></div>{% endif %}
+            {% if item.timemorning == False %}<div class="iconfalse"><img src="{% static 'medicine/img/morningf.jpg' %}" class="iconfalse" alt=""></div>{% endif %}</td>
+        <td>{% if item.timenoon == True %}<div class="icontrue"><img src="{% static 'medicine/img/noon.jpg' %}" class="icontrue" alt=""></div>{% endif %}
+            {% if item.timenoon == False %}<div class="iconfalse"><img src="{% static 'medicine/img/noonf.jpg' %}" class="iconfalse" alt=""></div>{% endif %}</td>
+        <td>{% if item.timenight == True %}<div class="icontrue"><img src="{% static 'medicine/img/night.jpg' %}" class="icontrue" alt=""></div>{% endif %}
+            {% if item.timenight == False %}<div class="iconfalse"><img src="{% static 'medicine/img/nightf.jpg' %}" class="iconfalse" alt=""></div>{% endif %}</td>
+        <td>{% if item.timesleep == True %}<div class="icontrue"><img src="{% static 'medicine/img/sleep.jpg' %}" class="icontrue" alt=""></div>{% endif %}
+            {% if item.timesleep == False %}<div class="iconfalse"><img src="{% static 'medicine/img/sleepf.jpg' %}" class="iconfalse" alt=""></div>{% endif %}</td>
+        <td>{% if item.timeother == True %}<div class="icontrue"><img src="{% static 'medicine/img/other.jpg' %}" class="icontrue" alt=""></div>{% endif %}
+            {% if item.timeother == False %}<div class="iconfalse"><img src="{% static 'medicine/img/otherf.jpg' %}" class="iconfalse" alt=""></div>{% endif %}</td>
+      <td rowspan="2"><a href="{% url 'edit' item.id %}">修正</a></td>
+        </tr>
+{% endfor %}
+</table>
+<br><br><br><br><br><br><br><br><br>
+<div class="plus_medi"><a href="{% url 'create' %}"><img src="{% static 'medicine/img/plus.svg' %}" alt=""><br><div class="plus_text">薬を追加</div></a></div>
+{% endblock %}

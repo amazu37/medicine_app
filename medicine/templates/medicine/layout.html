@@ -1,0 +1,40 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  type="text/css" href="{% static 'medicine/css/reset.css' %}">
+    <link rel="stylesheet"  type="text/css" href="{% static 'medicine/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/timedropper/1.0/timedropper.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timedropper/1.0/timedropper.min.js"></script>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <div id="header_menu">
+      <h1><span>{{title}}</span></h1>
+      <a href="#"><img src="{% static 'medicine/img/gear2.svg' %}" alt=""></a>
+      </div>
+      {% block header %}
+      {% endblock %}
+    </header>
+    <main>
+    {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div id="sp-fixed-menu" class="for-sp">
+            <ul>
+              <li><a href="{% url 'index' %}"><img src="{% static 'medicine/img/today_medi.svg' %}" alt=""><br>今日の薬</a></li>
+              <li><a href="{% url 'list' %}"><img src="{% static 'medicine/img/list_medi.svg' %}" alt=""><br>お薬一覧</a></li>
+              <li><a href="{% url 'takelist' %}"><img src="{% static 'medicine/img/list.svg' %}" alt=""><br>服用記録</a></li>
+              <li><a href="#"><img src="{% static 'medicine/img/hospital.svg' %}" alt=""><br>病院リスト</a></li>
+              <li><a href="{% url 'notice' %}"><img src="{% static 'medicine/img/bell.svg' %}" alt=""><br>各種設定</a></li>
+            </ul>
+          </div>
+    </footer>
+</html>

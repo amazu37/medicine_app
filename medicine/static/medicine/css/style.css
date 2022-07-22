@@ -1,0 +1,240 @@
+@charset "utf-8";
+
+#header_menu{
+display: block; 
+position: fixed; /*ポジションを固定する*/
+top: 0px;/*一番上に設置*/
+left: 0px;
+z-index: 9997; 
+background-color: rgb(65, 119, 0);/*メニューバー背景色*/
+width: 100%; /*横幅を100%に*/
+height: 60px; 
+padding: 0 0px;
+}
+#header_menu img {
+  z-index: 9998; 
+  position: fixed;
+  top: 0; /* 基準の位置を画面の一番上に指定する */
+  right: 0; 
+  padding-top: 10px;
+  padding-right: 10px;
+  max-width: 8vh;
+  min-height: 8vh;
+  object-fit: cover;
+  /* animation:3s linear infinite rotation1; */
+  /* アニメーション */
+  }
+
+#header_menu:hover a {
+  opacity: 0.5;
+  }
+
+/* @keyframes rotation1{
+  0%{ transform:rotate(0);}
+  100%{ transform:rotate(360deg); }
+} */
+
+#header_menu a {
+float: right; /*メニューを横並びにする*/
+font-size: 12px;
+color: #FFF;
+padding: 10px;
+}
+#header_menu a:after { /*floatでデザインが崩れないように*/
+display:block;
+clear: both;
+content:"";
+}
+
+/*メニューをページ上部に固定*/
+#sp-fixed-menu-time{
+  position: fixed;
+  width: 100%;
+  height: 10%; 
+  top: 60px;
+  font-size: 0;
+  /* opacity: 0.9; */
+  z-index: 99;
+}
+/*メニューを横並びにする*/
+#sp-fixed-menu-time ul{
+  display: flex;
+  list-style: none;
+  padding:0;
+  margin:0;
+  width:100%;
+}
+#sp-fixed-menu-time li img {
+  max-width: 8vh;
+  min-height: 8%;
+  margin: 5px;
+}
+#sp-fixed-menu-time li{
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding:0;
+  margin:0;
+  font-size: 12px;
+  border-right: none;
+}
+/*左側メニューを緑色に*/
+.click{
+  background: rgb(65, 119, 0);
+}
+.noclick{
+  background: rgb(110,169,36);
+}
+/*ボタンを調整*/
+#sp-fixed-menu-time li a{
+  color: #fff;
+  text-align: center;
+  display:block;
+  width: 100%;
+  padding:10px;
+}
+/*マウスオン時のボタンの色*/
+#sp-fixed-menu-time li:nth-child(1):hover {
+  background-color: rgb(65, 119, 0);
+  }
+#sp-fixed-menu-time li:nth-child(2):hover {
+  background-color: rgb(65, 119, 0);
+  }
+#sp-fixed-menu-time li:nth-child(3):hover {
+  background-color: rgb(65, 119, 0);
+  }
+#sp-fixed-menu-time li:nth-child(4):hover {
+  background-color: rgb(65, 119, 0);
+  }
+#sp-fixed-menu-time li:nth-child(5):hover {
+  background-color: rgb(65, 119, 0);
+  }
+/* メインメニュー（下部） */
+/*メニューをページ下部に固定*/
+#sp-fixed-menu{
+  position: fixed;
+  width: 100%;
+  /* height: 20%;  */
+  bottom: 0px;
+  font-size: 0;
+  /* opacity: 0.9; */
+  z-index: 99;
+}
+/*メニューを横並びにする*/
+#sp-fixed-menu ul{
+  display: flex;
+  list-style: none;
+  padding:0;
+  margin:0;
+  width:100%;
+}
+#sp-fixed-menu li img {
+  max-width: 8vh;
+  min-height: 8%;
+  margin: 5px;
+}
+#sp-fixed-menu li{
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding:0;
+  margin:0;
+  font-size: 12px;
+  border-right: 1px solid #fff;
+}
+/*左側メニューを緑色に*/
+#sp-fixed-menu li{
+  background: rgb(110,169,36);
+}
+/*ボタンを調整*/
+#sp-fixed-menu li a{
+  color: #fff;
+  text-align: center;
+  display:block;
+  width: 100%;
+  padding:10px;
+}
+/* ボタン（下部）ホバー色変え */
+#sp-fixed-menu li:nth-child(1):hover {
+  background-color: rgb(65, 119, 0);
+  }
+#sp-fixed-menu li:nth-child(2):hover {
+  background-color: rgb(65, 119, 0);
+  }
+#sp-fixed-menu li:nth-child(3):hover {
+  background-color: rgb(65, 119, 0);
+  }
+#sp-fixed-menu li:nth-child(4):hover {
+  background-color: rgb(65, 119, 0);
+  }
+#sp-fixed-menu li:nth-child(5):hover {
+  background-color: rgb(65, 119, 0);
+  }
+
+/* お薬追加アイコンボタンの調整   */
+.plus_medi{
+  font-size: 12px;
+  color: #ffffff;
+  right: 25px;
+  bottom: 100px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  text-align: center;
+  width:70px;
+  height:70px;
+  background:rgb(0, 185, 40);
+  border-radius:100%;
+  z-index: 9999; 
+  padding: 20px;
+}
+.plus_medi img {
+  position: absolute;
+  width: 75px;
+  height: auto;
+  top: -10px;
+  left: 0px;
+  padding: 20px;
+}
+.plus_text {
+  position: absolute;
+  top: 42px;
+  left: 9px;
+}
+
+body {
+  font-family: 'Catamaran','Noto Sans JP',sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2c2c2c;
+}
+/* main img {
+  max-width: 100%;
+} */
+/* ヘッダー */
+header {
+  padding-top: 12px;
+  margin-bottom: 12px;
+  text-align : center;
+}
+
+h1 {
+  text-align: left;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: .10em;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+main {
+  padding:0 40px;
+}
